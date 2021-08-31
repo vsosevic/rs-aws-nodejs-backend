@@ -7,7 +7,7 @@ import products from '../../productList.json';
 
 const getProductsById = async (event) => {
   const { productId } = event.pathParameters
-  const product = products.find(product => product.id === productId)
+  const product = await products.find(product => product.id === productId)
 
   return formatJSONResponse(product ?? 'Product not found');
 }

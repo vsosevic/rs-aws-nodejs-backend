@@ -6,7 +6,7 @@ import { middyfy } from '@libs/lambda';
 import products from '../../productList.json';
 
 const getProductsList = async () => {
-  return formatJSONResponse(products);
+  return await formatJSONResponse(products);
 }
 
 export const main = middyfy(getProductsList);
