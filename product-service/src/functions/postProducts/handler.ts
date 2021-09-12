@@ -6,12 +6,11 @@ import { middyfy } from '@libs/lambda';
 import { DBConnection } from "../../db/client";
 
 const postProducts = async (event) => {
-  const { productId } = event.pathParameters
   const db = new DBConnection()
   const client = await db.connect()
 
   try {
-    const { title, description, price, image_id, count } = JSON.parse(event.body);
+    const { title, description, price, image_id, count } = event.body;
 
     await client.query('BEGIN');
 
@@ -31,7 +30,7 @@ const postProducts = async (event) => {
     return formatJSONResponse({ message: 'Product created', product: { dbProductId, title, description, price, image_id, count } }, 201);
   } catch (error) {
     await client.query('ROLLBACK');
-    return formatJSONResponse({ message: error}, 500)
+    return formatJSONResponse({ message: error }, 500)
   } finally {
     await db.disconnect()
   }
