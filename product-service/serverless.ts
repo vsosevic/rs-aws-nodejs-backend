@@ -1,6 +1,6 @@
 import type { AWS } from '@serverless/typescript';
 
-import { getProductsList, getProductsById } from '@functions/index';
+import { getProductsList, getProductsById, postProducts } from '@functions/index';
 
 const { PG_HOST, PG_PORT, PG_DATABASE, PG_USERNAME, PG_PASSWORD } = process.env
 
@@ -37,7 +37,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { getProductsList, getProductsById },
+  functions: { getProductsList, getProductsById, postProducts },
 };
 
 module.exports = serverlessConfiguration;
