@@ -4,7 +4,8 @@ import { DBConnection } from '../../db/client'
 import { formatJSONResponse } from '@libs/apiGateway';
 import { middyfy } from '@libs/lambda';
 
-const getProductsList = async () => {
+const getProductsList = async (event) => {
+  console.log(event)
   const db = new DBConnection()
 
   try {

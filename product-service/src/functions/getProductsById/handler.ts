@@ -6,6 +6,7 @@ import { middyfy } from '@libs/lambda';
 import { DBConnection } from "../../db/client";
 
 const getProductsById = async (event) => {
+  console.log(event)
   const { productId } = event.pathParameters
   const db = new DBConnection()
 

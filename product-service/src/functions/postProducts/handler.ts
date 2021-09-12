@@ -6,6 +6,7 @@ import { middyfy } from '@libs/lambda';
 import { DBConnection } from "../../db/client";
 
 const postProducts = async (event) => {
+  console.log(event)
   const db = new DBConnection()
   const client = await db.connect()
 
